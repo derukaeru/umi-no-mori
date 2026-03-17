@@ -1,0 +1,33 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="umi mo mori"
+config/features=PackedStringArray("4.5", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+DialogueManager="*res://scripts/autoloads/dialogue_manager.gd"
+EventChanger="*res://scripts/autoloads/event_changer.gd"
+GameManager="*res://scripts/autoloads/game_manager.gd"
+SceneChanger="*res://scripts/autoloads/scene_changer.gd"
+SoundManager="*res://scripts/autoloads/sound_manager.gd"
+Util="*res://scripts/autoloads/util.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
