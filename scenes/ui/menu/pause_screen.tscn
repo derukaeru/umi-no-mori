@@ -1,0 +1,151 @@
+[gd_scene load_steps=18 format=3 uid="uid://bl76u00j047yr"]
+
+[ext_resource type="Script" path="res://scenes/ui/menu/pause_screen.gd" id="1_7lsvi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a7tkb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1nnkw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_15xed"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ymkx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lj40g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_adg4a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ug5br"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b8s8p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g5p8i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bjoxa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1e67d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c484w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a505t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e2jay"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ecwdm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cs7w5"]
+font_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
+
+[node name="pause_screen" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7lsvi")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.19215687, 0.13333334, 0.20392157, 1)
+
+[node name="resume" type="Button" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 72.0
+offset_right = 100.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0.2509804, 0.21176471, 0.2901961, 1)
+theme_override_colors/font_focus_color = Color(0.2509804, 0.21176471, 0.2901961, 1)
+theme_override_colors/font_hover_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_a7tkb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1nnkw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_15xed")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6ymkx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lj40g")
+text = "resume"
+alignment = 0
+
+[node name="icon" type="TextureRect" parent="resume"]
+visible = false
+layout_mode = 0
+offset_left = -10.0
+offset_top = 2.0
+offset_bottom = 12.0
+
+[node name="options" type="Button" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 88.0
+offset_right = 98.0
+offset_bottom = 104.0
+theme_override_colors/font_color = Color(0.2509804, 0.21176471, 0.2901961, 1)
+theme_override_colors/font_focus_color = Color(0.2509804, 0.21176471, 0.2901961, 1)
+theme_override_colors/font_hover_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_adg4a")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ug5br")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_b8s8p")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_g5p8i")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bjoxa")
+text = "options"
+alignment = 0
+
+[node name="icon" type="TextureRect" parent="options"]
+visible = false
+layout_mode = 0
+offset_left = -10.0
+offset_top = 2.0
+offset_bottom = 12.0
+
+[node name="menu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 104.0
+offset_right = 84.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0.2509804, 0.21176471, 0.2901961, 1)
+theme_override_colors/font_focus_color = Color(0.2509804, 0.21176471, 0.2901961, 1)
+theme_override_colors/font_hover_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1e67d")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c484w")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_a505t")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_e2jay")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ecwdm")
+text = "menu"
+alignment = 0
+
+[node name="icon" type="TextureRect" parent="menu"]
+visible = false
+layout_mode = 0
+offset_left = -10.0
+offset_top = 2.0
+offset_bottom = 12.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 88.0
+offset_right = 208.0
+offset_bottom = 104.0
+text = "paused."
+label_settings = SubResource("LabelSettings_cs7w5")
+
+[connection signal="mouse_entered" from="resume" to="." method="_on_resume_mouse_entered"]
+[connection signal="mouse_exited" from="resume" to="." method="_on_resume_mouse_exited"]
+[connection signal="pressed" from="resume" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="options" to="." method="_on_options_mouse_entered"]
+[connection signal="mouse_exited" from="options" to="." method="_on_options_mouse_exited"]
+[connection signal="mouse_entered" from="menu" to="." method="_on_menu_mouse_entered"]
+[connection signal="mouse_exited" from="menu" to="." method="_on_menu_mouse_exited"]

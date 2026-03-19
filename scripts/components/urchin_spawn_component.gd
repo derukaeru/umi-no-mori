@@ -1,0 +1,1 @@
+class_name UrchinSpawn extends Marker2D

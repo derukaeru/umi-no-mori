@@ -1,0 +1,224 @@
+[gd_scene load_steps=24 format=3 uid="uid://cxhdowwrw455t"]
+
+[ext_resource type="Script" uid="uid://53q7t8vghnaf" path="res://scenes/ui/menu/title_screen.gd" id="1_t0v0j"]
+[ext_resource type="PackedScene" uid="uid://yc7ufj6qinff" path="res://scenes/ui/menu/settings_screen.tscn" id="2_5b1ss"]
+[ext_resource type="Texture2D" uid="uid://do68rp4opmglu" path="res://assets/sprites/menu/title_screen/background.png" id="2_tgfeg"]
+[ext_resource type="Texture2D" uid="uid://g8afwh4u7iv5" path="res://assets/sprites/icons/arrow.png" id="3_tgfeg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bwpea"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xcgv5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rprdc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_msh13"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_avmqa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_44og4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_so78k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vfbrp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mki1h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lvqmm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rbxo2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_it6vo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3kft2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7v78q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lnu1g"]
+
+[sub_resource type="Animation" id="Animation_so78k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-48, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_44og4"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-352, 0), Vector2(-48, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_avmqa"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-48, 0), Vector2(256, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vfbrp"]
+_data = {
+&"RESET": SubResource("Animation_so78k"),
+&"close": SubResource("Animation_44og4"),
+&"open": SubResource("Animation_avmqa")
+}
+
+[node name="title_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t0v0j")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tgfeg")
+
+[node name="title" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 152.0
+offset_bottom = 80.0
+
+[node name="start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 88.0
+offset_right = 69.0
+offset_bottom = 111.0
+theme_override_colors/font_hover_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bwpea")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xcgv5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rprdc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_msh13")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_avmqa")
+text = "start"
+alignment = 0
+
+[node name="icon" type="TextureRect" parent="start"]
+visible = false
+layout_mode = 0
+offset_left = -18.0
+offset_top = 2.0
+offset_right = -8.0
+offset_bottom = 12.0
+scale = Vector2(2, 2)
+texture = ExtResource("3_tgfeg")
+
+[node name="options" type="Button" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 112.0
+offset_right = 91.0
+offset_bottom = 135.0
+theme_override_colors/font_hover_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_44og4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_so78k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vfbrp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mki1h")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lvqmm")
+text = "options"
+alignment = 0
+
+[node name="icon" type="TextureRect" parent="options"]
+visible = false
+layout_mode = 0
+offset_left = -18.0
+offset_top = 2.0
+offset_right = -8.0
+offset_bottom = 12.0
+scale = Vector2(2, 2)
+texture = ExtResource("3_tgfeg")
+
+[node name="exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 136.0
+offset_right = 61.0
+offset_bottom = 159.0
+theme_override_colors/font_hover_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rbxo2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_it6vo")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3kft2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7v78q")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lnu1g")
+text = "exit"
+alignment = 0
+
+[node name="icon" type="TextureRect" parent="exit"]
+visible = false
+layout_mode = 0
+offset_left = -18.0
+offset_top = 2.0
+offset_right = -8.0
+offset_bottom = 12.0
+scale = Vector2(2, 2)
+texture = ExtResource("3_tgfeg")
+
+[node name="settings_screen" parent="." instance=ExtResource("2_5b1ss")]
+visible = false
+layout_mode = 1
+script = null
+
+[node name="cover" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_right = 48.00006
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="cover"]
+libraries = {
+&"": SubResource("AnimationLibrary_vfbrp")
+}
+
+[connection signal="mouse_entered" from="start" to="." method="_on_start_mouse_entered"]
+[connection signal="mouse_exited" from="start" to="." method="_on_start_mouse_exited"]
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="options" to="." method="_on_options_mouse_entered"]
+[connection signal="mouse_exited" from="options" to="." method="_on_options_mouse_exited"]
+[connection signal="pressed" from="options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="mouse_exited" from="exit" to="." method="_on_exit_mouse_exited"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://biq3mkdp0qysx"]
+
+[ext_resource type="Script" uid="uid://bd0yh16nx0wpr" path="res://scenes/objects/urchin/urchin.gd" id="1_h8u0u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8u0u"]
+
+[node name="urchin" type="Area2D"]
+script = ExtResource("1_h8u0u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h8u0u")
