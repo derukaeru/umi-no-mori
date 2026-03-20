@@ -10,14 +10,14 @@ const WATER_DRAG = 0.85
 
 var is_underwater = false
 
-func _physics_process(delta):
+func _physics_process(delta) -> void:
 	if is_underwater:
 		_underwater_movement(delta)
 	else:
 		_land_movement(delta)
 	move_and_slide()
 
-func _land_movement(delta):
+func _land_movement(delta) -> void:
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 
@@ -30,7 +30,7 @@ func _land_movement(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-func _underwater_movement(delta):
+func _underwater_movement(delta) -> void:
 	velocity.y += WATER_GRAVITY * delta
 
 	var h = Input.get_axis("left", "right")

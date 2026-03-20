@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://ckg3kbqtshl3f"]
+[gd_scene load_steps=3 format=3 uid="uid://ckg3kbqtshl3f"]
+
+[ext_resource type="PackedScene" uid="uid://1670pa3lbyvj" path="res://scenes/entities/player/player.tscn" id="1_hyk8p"]
+[ext_resource type="PackedScene" uid="uid://c1y0dqt7dnkbs" path="res://scenes/world/hub.tscn" id="2_iuonh"]
 
 [node name="main" type="Node2D"]
+
+[node name="current_world" type="Node2D" parent="."]
+
+[node name="hub" parent="current_world" instance=ExtResource("2_iuonh")]
+
+[node name="player" parent="." instance=ExtResource("1_hyk8p")]

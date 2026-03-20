@@ -8,7 +8,7 @@ var _foreground_scene : Control
 var _transition_effect : ColorRect
 var _transition_tween : Tween
 
-func _ready():
+func _ready() -> void:
 	get_tree().scene_changed.connect(_scene_changed_callback)
 
 	_foreground_canvas = CanvasLayer.new()
@@ -22,7 +22,7 @@ func _ready():
 		_transition_effect.set_visible(false)
 
 
-var _transition_effect_parameter_call = func(value : float):
+var _transition_effect_parameter_call = func(value : float) -> void:
 	_transition_effect.material.set_shader_parameter(
 		"progress",
 		value
@@ -37,7 +37,7 @@ var _transition_effect_parameter_call = func(value : float):
 	)
 
 
-func change_scene(scene_path : String):
+func change_scene(scene_path : String) -> void:
 	if _transition_effect == null:
 		push_warning("Transition effect not found.")
 		get_tree().change_scene_to_file(scene_path)
@@ -55,7 +55,7 @@ func change_scene(scene_path : String):
 	_transition_tween.tween_callback(get_tree().change_scene_to_file.bind(scene_path))
 
 
-func _scene_changed_callback():
+func _scene_changed_callback() -> void:
 	if _transition_tween != null:
 		_transition_tween.kill()
 		_transition_tween = null

@@ -1,4 +1,4 @@
 class_name HurtboxComponent extends HitboxComponent
 
-func take_damage():
+func take_damage() -> void:
 	pass

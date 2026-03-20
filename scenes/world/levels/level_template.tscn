@@ -65,3 +65,5 @@ tile_set = SubResource("TileSet_4c2sx")
 [node name="player_spawn" type="Marker2D" parent="."]
 
 [node name="urchin_spawns" type="Node2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="."]
