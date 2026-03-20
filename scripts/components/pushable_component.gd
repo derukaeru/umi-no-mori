@@ -1,0 +1,1 @@
+class_name PushableComponent extends Node2D

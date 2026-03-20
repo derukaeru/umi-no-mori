@@ -1,8 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://1670pa3lbyvj"]
+[gd_scene load_steps=6 format=3 uid="uid://1670pa3lbyvj"]
 
 [ext_resource type="Script" uid="uid://ci1hhjnown2tf" path="res://scenes/entities/player/player.gd" id="1_1hmtu"]
+[ext_resource type="Script" path="res://scripts/components/hurtbox_component.gd" id="3_58kc7"]
+[ext_resource type="Script" path="res://scripts/components/state_machine.gd" id="4_nh4ur"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58kc7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nh4ur"]
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_1hmtu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_58kc7")
+
+[node name="HurtboxComponent" type="Area2D" parent="."]
+script = ExtResource("3_58kc7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("RectangleShape2D_nh4ur")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_nh4ur")
