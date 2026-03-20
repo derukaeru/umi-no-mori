@@ -7,22 +7,24 @@
 [ext_resource type="Texture2D" uid="uid://cu0vnm8vy6q0q" path="res://assets/sprites/frog/frog.png" id="5_bjvvg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58kc7"]
-size = Vector2(8, 8)
+size = Vector2(11.999998, 12.000002)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nh4ur"]
-size = Vector2(8, 8)
+size = Vector2(12, 12)
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" groups=["hookable", "player"]]
 script = ExtResource("1_1hmtu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = -3.1415927
+position = Vector2(1.1920929e-07, 2.0000002)
+rotation = 3.1415925
 shape = SubResource("RectangleShape2D_58kc7")
 
 [node name="HurtboxComponent" type="Area2D" parent="."]
 script = ExtResource("3_58kc7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_nh4ur")
 
 [node name="StateMachine" type="Node" parent="."]

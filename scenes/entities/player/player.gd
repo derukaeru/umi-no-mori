@@ -1,46 +1,48 @@
 extends CharacterBody2D
 
-const SPEED = 120.0
-const JUMP_VELOCITY = -320.0
-const GRAVITY = 900.0
+const MOVE_SPEED = 100.0
+const TONGUE_PULL_FORCE = 4000.0
+const GRAVITY = 200.0
+const DRAG = 0.88
 
-const WATER_GRAVITY = 200.0
-const WATER_SPEED = 80.0
-const WATER_DRAG = 0.85
+var tongue_direction = Vector2.ZERO
+var is_tongue_active = false
+var tongue_hooked: Node2D
 
-var is_underwater = false
+func _physics_process(delta):
+	velocity.y += GRAVITY * delta
 
-func _physics_process(delta) -> void:
-	if is_underwater:
-		_underwater_movement(delta)
-	else:
-		_land_movement(delta)
+	var h = Input.get_axis("move_left", "move_right")
+	velocity.x = h * MOVE_SPEED
+
+	if is_tongue_active:
+		velocity += tongue_direction * TONGUE_PULL_FORCE * delta
+
+	# velocity *= DRAG
 	move_and_slide()
 
-func _land_movement(delta) -> void:
-	if not is_on_floor():
-		velocity.y += GRAVITY * delta
+func _input(_event):
+	if Input.is_action_just_pressed("interact"):
+		fire_tongue()
 
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	var direction = Input.get_axis("left", "right")
-	if direction:
-		velocity.x = direction * SPEED
+func fire_tongue():
+	var dir = Vector2.ZERO
+	if Input.is_action_pressed("aim_up"):
+		dir = Vector2.UP
+	elif Input.is_action_pressed("aim_down"):
+		dir = Vector2.DOWN
+	elif Input.is_action_pressed("aim_left"):
+		dir = Vector2.LEFT
+	elif Input.is_action_pressed("aim_right"):
+		dir = Vector2.RIGHT
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		dir = Vector2.UP 
 
-func _underwater_movement(delta) -> void:
-	velocity.y += WATER_GRAVITY * delta
+	tongue_direction = dir
+	is_tongue_active = true
+	
+	await get_tree().create_timer(0.50).timeout
+	is_tongue_active = false
 
-	var h = Input.get_axis("left", "right")
-	var v = Input.get_axis("up", "down")
-
-	velocity.x = h * WATER_SPEED
-	if v:
-		velocity.y = v * WATER_SPEED
-
-	velocity *= WATER_DRAG
-
-func death():
+func reset() -> void:
 	pass
