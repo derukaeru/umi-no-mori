@@ -1,4 +1,29 @@
-[gd_scene format=3 uid="uid://cnyr7ho757hdv"]
+[gd_scene load_steps=12 format=3 uid="uid://cnyr7ho757hdv"]
+
+[ext_resource type="Script" uid="uid://xbljakgdylsc" path="res://scenes/ui/menu/level_screen.gd" id="1_xepc8"]
+[ext_resource type="Shader" uid="uid://c8a6xk33gko71" path="res://assets/shaders/crt.gdshader" id="2_1knli"]
+[ext_resource type="Texture2D" uid="uid://33kvfskveoek" path="res://assets/sprites/menu/level_screen.png" id="2_66l0r"]
+[ext_resource type="Texture2D" uid="uid://bjns8favakw82" path="res://assets/sprites/icons/level_star.png" id="4_kjc3d"]
+[ext_resource type="Shader" uid="uid://b7v4mv16vpskt" path="res://assets/shaders/parallax.gdshader" id="4_m6e58"]
+[ext_resource type="Script" uid="uid://bu8a5m2sunodi" path="res://scripts/components/level_star.gd" id="5_exvsb"]
+[ext_resource type="Texture2D" uid="uid://bnlgg35lkfhpo" path="res://assets/sprites/shader/texture_1.png" id="5_kjc3d"]
+[ext_resource type="Texture2D" uid="uid://c8f1qft8m50ji" path="res://assets/sprites/shader/texture_2.png" id="6_exvsb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3eefh"]
+shader = ExtResource("4_m6e58")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xutwk"]
+shader = ExtResource("4_m6e58")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_66l0r"]
+shader = ExtResource("2_1knli")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 0.18000000855
+shader_parameter/warp_amount = 0.02000000095
+shader_parameter/vignette_amount = 0.5
+shader_parameter/vignette_intensity = 0.3
+shader_parameter/grille_amount = 0.1850000087875
+shader_parameter/brightness_boost = 1.14000000665
 
 [node name="level_screen" type="Control"]
 layout_mode = 3
@@ -7,3 +32,103 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xepc8")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_66l0r")
+
+[node name="shader2" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="shader2"]
+modulate = Color(1, 1, 1, 0.043137256)
+material = SubResource("ShaderMaterial_3eefh")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_kjc3d")
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="shader2"]
+modulate = Color(1, 1, 1, 0.043137256)
+material = SubResource("ShaderMaterial_xutwk")
+layout_mode = 0
+offset_left = 256.0
+offset_top = 193.0
+offset_right = 512.0
+offset_bottom = 385.0
+rotation = 3.1415927
+texture = ExtResource("6_exvsb")
+stretch_mode = 1
+
+[node name="shader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_66l0r")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="level_lines" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="levels" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelStar" type="Sprite2D" parent="levels"]
+position = Vector2(58, 42.999996)
+rotation = -1.154067
+texture = ExtResource("4_kjc3d")
+script = ExtResource("5_exvsb")
+metadata/_custom_type_script = "uid://bu8a5m2sunodi"
+
+[node name="LevelStar2" type="Sprite2D" parent="levels"]
+position = Vector2(139, 54.999996)
+rotation = -0.6051257
+texture = ExtResource("4_kjc3d")
+script = ExtResource("5_exvsb")
+metadata/_custom_type_script = "uid://bu8a5m2sunodi"
+
+[node name="LevelStar3" type="Sprite2D" parent="levels"]
+position = Vector2(78, 94)
+rotation = 0.89578736
+texture = ExtResource("4_kjc3d")
+script = ExtResource("5_exvsb")
+metadata/_custom_type_script = "uid://bu8a5m2sunodi"
+
+[node name="LevelStar4" type="Sprite2D" parent="levels"]
+position = Vector2(121, 138)
+rotation = 0.17469428
+texture = ExtResource("4_kjc3d")
+script = ExtResource("5_exvsb")
+metadata/_custom_type_script = "uid://bu8a5m2sunodi"
+
+[node name="LevelStar5" type="Sprite2D" parent="levels"]
+position = Vector2(178, 126)
+rotation = 0.83746415
+texture = ExtResource("4_kjc3d")
+script = ExtResource("5_exvsb")
+metadata/_custom_type_script = "uid://bu8a5m2sunodi"
