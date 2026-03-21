@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://biq3mkdp0qysx"]
+[gd_scene load_steps=4 format=3 uid="uid://biq3mkdp0qysx"]
 
 [ext_resource type="Script" uid="uid://bd0yh16nx0wpr" path="res://scenes/objects/urchin/urchin.gd" id="1_h8u0u"]
+[ext_resource type="Texture2D" uid="uid://bqoi7dp7521ka" path="res://assets/sprites/urchin/urchin_1.png" id="2_xj6gj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h8u0u"]
+size = Vector2(15, 16)
 
-[node name="urchin" type="Area2D"]
+[node name="urchin" type="Area2D" groups=["urchin"]]
 script = ExtResource("1_h8u0u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_h8u0u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xj6gj")

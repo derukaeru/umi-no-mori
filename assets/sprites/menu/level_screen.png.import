@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://33kvfskveoek"
-path="res://.godot/imported/hub.png-165ead71e2b5635f1b265335c11b28fb.ctex"
+path="res://.godot/imported/level_screen.png-c011505a7c2d5ad7d958818020a3787a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/menu/hub.png"
-dest_files=["res://.godot/imported/hub.png-165ead71e2b5635f1b265335c11b28fb.ctex"]
+source_file="res://assets/sprites/menu/level_screen.png"
+dest_files=["res://.godot/imported/level_screen.png-c011505a7c2d5ad7d958818020a3787a.ctex"]
 
 [params]
 

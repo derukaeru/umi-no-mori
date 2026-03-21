@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckg3kbqtshl3f"]
+[gd_scene load_steps=5 format=3 uid="uid://ckg3kbqtshl3f"]
 
 [ext_resource type="PackedScene" uid="uid://1670pa3lbyvj" path="res://scenes/entities/player/player.tscn" id="1_hyk8p"]
-[ext_resource type="PackedScene" uid="uid://cq0lcfqchh4qi" path="res://scenes/world/test_scene.tscn" id="1_iuonh"]
+[ext_resource type="PackedScene" uid="uid://cq0lcfqchh4qi" path="res://scenes/world/levels/test_scene.tscn" id="1_iuonh"]
+[ext_resource type="Shader" uid="uid://c8a6xk33gko71" path="res://assets/shaders/crt.gdshader" id="3_k2fmo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l3cfh"]
+shader = ExtResource("3_k2fmo")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 0.1600000076
+shader_parameter/warp_amount = 0.02000000095
+shader_parameter/vignette_amount = 1.0
+shader_parameter/vignette_intensity = 0.3
+shader_parameter/grille_amount = 0.650000030875
+shader_parameter/brightness_boost = 1.1650000078375
 
 [node name="main" type="Node2D"]
 
@@ -10,3 +21,15 @@
 [node name="test_scene" parent="current_world" instance=ExtResource("1_iuonh")]
 
 [node name="player" parent="." instance=ExtResource("1_hyk8p")]
+position = Vector2(84, 59)
+
+[node name="hud" type="CanvasLayer" parent="."]
+
+[node name="shader" type="ColorRect" parent="hud"]
+material = SubResource("ShaderMaterial_l3cfh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
