@@ -100,35 +100,35 @@ grow_vertical = 2
 
 [node name="LevelStar" type="Sprite2D" parent="levels"]
 position = Vector2(58, 42.999996)
-rotation = -1.154067
+rotation = -0.3941753
 texture = ExtResource("4_kjc3d")
 script = ExtResource("5_exvsb")
 metadata/_custom_type_script = "uid://bu8a5m2sunodi"
 
 [node name="LevelStar2" type="Sprite2D" parent="levels"]
 position = Vector2(139, 54.999996)
-rotation = -0.6051257
+rotation = -0.76984495
 texture = ExtResource("4_kjc3d")
 script = ExtResource("5_exvsb")
 metadata/_custom_type_script = "uid://bu8a5m2sunodi"
 
 [node name="LevelStar3" type="Sprite2D" parent="levels"]
 position = Vector2(78, 94)
-rotation = 0.89578736
+rotation = 0.041978717
 texture = ExtResource("4_kjc3d")
 script = ExtResource("5_exvsb")
 metadata/_custom_type_script = "uid://bu8a5m2sunodi"
 
 [node name="LevelStar4" type="Sprite2D" parent="levels"]
 position = Vector2(121, 138)
-rotation = 0.17469428
+rotation = 0.907365
 texture = ExtResource("4_kjc3d")
 script = ExtResource("5_exvsb")
 metadata/_custom_type_script = "uid://bu8a5m2sunodi"
 
 [node name="LevelStar5" type="Sprite2D" parent="levels"]
 position = Vector2(178, 126)
-rotation = 0.83746415
+rotation = 0.6871478
 texture = ExtResource("4_kjc3d")
 script = ExtResource("5_exvsb")
 metadata/_custom_type_script = "uid://bu8a5m2sunodi"

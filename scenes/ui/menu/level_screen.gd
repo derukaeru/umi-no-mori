@@ -13,7 +13,7 @@ func _ready():
 	
 	for i in len(level_stars) - 1:
 		var line = Line2D.new()
-		line.width = 4.0
+		line.width = 3.0
 		line.default_color = Color("7c8497")
 		
 		level_lines.append(line)
