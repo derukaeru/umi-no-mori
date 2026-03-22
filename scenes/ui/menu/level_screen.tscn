@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cnyr7ho757hdv"]
+[gd_scene load_steps=16 format=3 uid="uid://cnyr7ho757hdv"]
 
 [ext_resource type="Script" uid="uid://xbljakgdylsc" path="res://scenes/ui/menu/level_screen.gd" id="1_xepc8"]
 [ext_resource type="Shader" uid="uid://c8a6xk33gko71" path="res://assets/shaders/crt.gdshader" id="2_1knli"]
@@ -9,6 +9,44 @@
 [ext_resource type="Texture2D" uid="uid://bnlgg35lkfhpo" path="res://assets/sprites/shader/texture_1.png" id="5_kjc3d"]
 [ext_resource type="Texture2D" uid="uid://c8f1qft8m50ji" path="res://assets/sprites/shader/texture_2.png" id="6_exvsb"]
 [ext_resource type="Texture2D" uid="uid://djbnmcrw4mbfl" path="res://assets/sprites/icons/level_pointer.png" id="9_kjc3d"]
+
+[sub_resource type="Animation" id="Animation_kjc3d"]
+resource_name = "bob"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("image:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5)]
+}
+
+[sub_resource type="Animation" id="Animation_exvsb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("image:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(52, 26)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xqewg"]
+_data = {
+&"RESET": SubResource("Animation_exvsb"),
+&"bob": SubResource("Animation_kjc3d")
+}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3eefh"]
 shader = ExtResource("4_m6e58")
@@ -43,6 +81,80 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_66l0r")
+
+[node name="level_lines" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="levels" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelStar" type="Sprite2D" parent="levels"]
+position = Vector2(58, 42.999996)
+rotation = -0.8396235
+texture = ExtResource("4_kjc3d")
+script = ExtResource("5_exvsb")
+metadata/_custom_type_script = "uid://bu8a5m2sunodi"
+
+[node name="LevelStar2" type="Sprite2D" parent="levels"]
+position = Vector2(139, 54.999996)
+rotation = 0.39591405
+texture = ExtResource("4_kjc3d")
+script = ExtResource("5_exvsb")
+metadata/_custom_type_script = "uid://bu8a5m2sunodi"
+
+[node name="LevelStar3" type="Sprite2D" parent="levels"]
+position = Vector2(78, 94)
+rotation = -0.6399894
+texture = ExtResource("4_kjc3d")
+script = ExtResource("5_exvsb")
+metadata/_custom_type_script = "uid://bu8a5m2sunodi"
+
+[node name="LevelStar4" type="Sprite2D" parent="levels"]
+position = Vector2(121, 138)
+rotation = 0.95864326
+texture = ExtResource("4_kjc3d")
+script = ExtResource("5_exvsb")
+metadata/_custom_type_script = "uid://bu8a5m2sunodi"
+
+[node name="LevelStar5" type="Sprite2D" parent="levels"]
+position = Vector2(178, 126)
+rotation = 0.8555043
+texture = ExtResource("4_kjc3d")
+script = ExtResource("5_exvsb")
+metadata/_custom_type_script = "uid://bu8a5m2sunodi"
+
+[node name="pointer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="image" type="TextureRect" parent="pointer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 52.0
+offset_top = 26.0
+offset_right = 63.0
+offset_bottom = 37.00009
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_kjc3d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="pointer"]
+libraries = {
+&"": SubResource("AnimationLibrary_xqewg")
+}
+autoplay = "bob"
 
 [node name="shader2" type="Control" parent="."]
 layout_mode = 1
@@ -82,67 +194,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="level_lines" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="levels" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="LevelStar" type="Sprite2D" parent="levels"]
-position = Vector2(58, 42.999996)
-rotation = 0.9498412
-texture = ExtResource("4_kjc3d")
-script = ExtResource("5_exvsb")
-metadata/_custom_type_script = "uid://bu8a5m2sunodi"
-
-[node name="LevelStar2" type="Sprite2D" parent="levels"]
-position = Vector2(139, 54.999996)
-rotation = -0.5907005
-texture = ExtResource("4_kjc3d")
-script = ExtResource("5_exvsb")
-metadata/_custom_type_script = "uid://bu8a5m2sunodi"
-
-[node name="LevelStar3" type="Sprite2D" parent="levels"]
-position = Vector2(78, 94)
-rotation = 0.9523817
-texture = ExtResource("4_kjc3d")
-script = ExtResource("5_exvsb")
-metadata/_custom_type_script = "uid://bu8a5m2sunodi"
-
-[node name="LevelStar4" type="Sprite2D" parent="levels"]
-position = Vector2(121, 138)
-rotation = 0.95664227
-texture = ExtResource("4_kjc3d")
-script = ExtResource("5_exvsb")
-metadata/_custom_type_script = "uid://bu8a5m2sunodi"
-
-[node name="LevelStar5" type="Sprite2D" parent="levels"]
-position = Vector2(178, 126)
-rotation = 0.20450042
-texture = ExtResource("4_kjc3d")
-script = ExtResource("5_exvsb")
-metadata/_custom_type_script = "uid://bu8a5m2sunodi"
-
-[node name="pointer" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 52.0
-offset_top = 26.0
-offset_right = -193.0
-offset_bottom = -155.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("9_kjc3d")
