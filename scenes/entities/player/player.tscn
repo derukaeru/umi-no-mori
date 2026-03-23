@@ -13,7 +13,7 @@ size = Vector2(11.999998, 12.000002)
 size = Vector2(12, 12)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bjvvg"]
-radius = 3.6055512
+radius = 2.0
 
 [node name="player" type="CharacterBody2D" groups=["hookable", "player"]]
 script = ExtResource("1_1hmtu")
