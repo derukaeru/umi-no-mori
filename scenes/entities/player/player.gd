@@ -11,8 +11,7 @@ var tongue_direction := Vector2.ZERO
 var is_tongue_active := false
 var is_tongue_tucked := true
 var target_hooked: Urchin
-var position_hooked: Vector2
-
+var position_hooked := Vector2.ZERO
 
 @onready var tongue = $tongue_tip
 @onready var tongue_line = $tongue_line
@@ -24,8 +23,9 @@ func _physics_process(delta):
 		var h = Input.get_axis("move_left", "move_right")
 		velocity.x = move_toward(velocity.x, h * MOVE_SPEED, ACCELERATION * delta)
 	
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or position_hooked != Vector2.ZERO):
 		velocity.y = -140.0
+		unhook()
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y *= 0.4
 		
@@ -49,24 +49,24 @@ func _physics_process(delta):
 		tongue.global_position = position_hooked
 		
 		#if self.global_position.distance_to(position_hooked) < 12.0:
-			#position_hooked = Vector2.ZERO
-			#is_tongue_active = false
-			#tuck_tongue()
-			#can_move = true
+			#pass
 	
 	velocity *= DRAG
 	move_and_slide()
 
 func _input(_event):
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and is_tongue_tucked and not is_tongue_active and can_move:
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and (is_tongue_tucked or position_hooked != Vector2.ZERO) and not is_tongue_active and can_move:
 		fire_tongue()
+	
 
-func fire_tongue():
+func unhook():
 	position_hooked = Vector2.ZERO
 	is_tongue_active = false
-	can_move = true
 	
 	tuck_tongue()
+
+func fire_tongue():
+	unhook()
 	
 	var mouse_pos = get_global_mouse_position()
 	tongue_direction = (mouse_pos - global_position).normalized()
@@ -78,7 +78,7 @@ func fire_tongue():
 	
 	await get_tree().create_timer(0.2).timeout
 	
-	if position_hooked == Vector2.ZERO:
+	if position_hooked == Vector2.ZERO and is_tongue_active:
 		is_tongue_active = false
 
 func reset() -> void:
