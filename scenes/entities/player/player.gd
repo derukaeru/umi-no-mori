@@ -12,7 +12,6 @@ var is_tongue_active := false
 var is_tongue_tucked := true
 var target_hooked: Urchin
 var position_hooked: Vector2
-var position_hooked_angle: Vector2 = Vector2.ZERO
 
 
 @onready var tongue = $tongue_tip
@@ -45,13 +44,15 @@ func _physics_process(delta):
 		target_hooked.global_position = tongue.global_position
 	
 	if position_hooked != Vector2.ZERO:
-		self.global_position += position_hooked_angle * 2
+		var pull = (position_hooked - global_position).normalized()
+		velocity += pull * TONGUE_PULL_FORCE * delta
 		tongue.global_position = position_hooked
 		
-		if self.global_position.distance_to(position_hooked) < 2.0:
-			position_hooked = Vector2.ZERO
-			tuck_tongue()
-			can_move = true
+		#if self.global_position.distance_to(position_hooked) < 12.0:
+			#position_hooked = Vector2.ZERO
+			#is_tongue_active = false
+			#tuck_tongue()
+			#can_move = true
 	
 	velocity *= DRAG
 	move_and_slide()
@@ -61,6 +62,12 @@ func _input(_event):
 		fire_tongue()
 
 func fire_tongue():
+	position_hooked = Vector2.ZERO
+	is_tongue_active = false
+	can_move = true
+	
+	tuck_tongue()
+	
 	var mouse_pos = get_global_mouse_position()
 	tongue_direction = (mouse_pos - global_position).normalized()
 	
@@ -87,21 +94,16 @@ func tuck_tongue():
 		target_hooked.queue_free()
 		target_hooked = null
 		GameManager.urchin_money += 1
-	
-	if position_hooked:
-		pass
 
 func _on_tongue_tip_body_entered(body):
 	if body.is_in_group("player") and not is_tongue_tucked:
 		tuck_tongue()
 		return
 		
-	if body is TileMapLayer:
+	if body is TileMapLayer and is_tongue_active:
 		position_hooked = tongue.global_position
-		position_hooked_angle = (position_hooked - self.global_position).normalized()
-		can_move = false
 
 func _on_tongue_tip_area_entered(area):
-	if area is Urchin and is_tongue_active:
+	if area is Urchin and is_tongue_active and not is_tongue_tucked:
 		is_tongue_active = false
 		target_hooked = area
