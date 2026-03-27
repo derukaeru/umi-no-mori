@@ -1,9 +1,13 @@
-[gd_scene load_steps=24 format=3 uid="uid://cxhdowwrw455t"]
+[gd_scene load_steps=31 format=3 uid="uid://cxhdowwrw455t"]
 
 [ext_resource type="Script" uid="uid://53q7t8vghnaf" path="res://scenes/ui/menu/title_screen.gd" id="1_t0v0j"]
 [ext_resource type="PackedScene" uid="uid://yc7ufj6qinff" path="res://scenes/ui/menu/settings_screen.tscn" id="2_5b1ss"]
 [ext_resource type="Texture2D" uid="uid://do68rp4opmglu" path="res://assets/sprites/menu/title_screen.png" id="2_tgfeg"]
 [ext_resource type="Texture2D" uid="uid://g8afwh4u7iv5" path="res://assets/sprites/icons/arrow.png" id="3_tgfeg"]
+[ext_resource type="Shader" uid="uid://b7v4mv16vpskt" path="res://assets/shaders/parallax.gdshader" id="5_mso5x"]
+[ext_resource type="Texture2D" uid="uid://bnlgg35lkfhpo" path="res://assets/sprites/shader/texture_1.png" id="6_tpa0s"]
+[ext_resource type="Texture2D" uid="uid://c8f1qft8m50ji" path="res://assets/sprites/shader/texture_2.png" id="7_857d1"]
+[ext_resource type="Shader" uid="uid://c8a6xk33gko71" path="res://assets/shaders/crt.gdshader" id="8_vvq16"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bwpea"]
 
@@ -87,6 +91,22 @@ _data = {
 &"open": SubResource("Animation_avmqa")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xnpn7"]
+shader = ExtResource("5_mso5x")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4gkac"]
+shader = ExtResource("5_mso5x")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vfcrs"]
+shader = ExtResource("8_vvq16")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 0.18000000855
+shader_parameter/warp_amount = 0.0
+shader_parameter/vignette_amount = 0.5
+shader_parameter/vignette_intensity = 0.3
+shader_parameter/grille_amount = 0.1850000087875
+shader_parameter/brightness_boost = 1.14000000665
+
 [node name="title_screen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -114,10 +134,10 @@ offset_bottom = 80.0
 
 [node name="start" type="Button" parent="."]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 88.0
-offset_right = 69.0
-offset_bottom = 111.0
+offset_left = 16.0
+offset_top = 96.0
+offset_right = 96.0
+offset_bottom = 119.0
 theme_override_colors/font_hover_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
 theme_override_font_sizes/font_size = 18
@@ -141,10 +161,10 @@ texture = ExtResource("3_tgfeg")
 
 [node name="options" type="Button" parent="."]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 112.0
-offset_right = 91.0
-offset_bottom = 135.0
+offset_left = 16.0
+offset_top = 120.0
+offset_right = 128.0
+offset_bottom = 143.0
 theme_override_colors/font_hover_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
 theme_override_font_sizes/font_size = 18
@@ -168,10 +188,10 @@ texture = ExtResource("3_tgfeg")
 
 [node name="exit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 136.0
-offset_right = 61.0
-offset_bottom = 159.0
+offset_left = 16.0
+offset_top = 144.0
+offset_right = 80.0
+offset_bottom = 167.0
 theme_override_colors/font_hover_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
 theme_override_font_sizes/font_size = 18
@@ -212,6 +232,45 @@ grow_vertical = 2
 libraries = {
 &"": SubResource("AnimationLibrary_vfbrp")
 }
+
+[node name="shader2" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="shader2"]
+modulate = Color(1, 1, 1, 0.043137256)
+material = SubResource("ShaderMaterial_xnpn7")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_tpa0s")
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="shader2"]
+modulate = Color(1, 1, 1, 0.043137256)
+material = SubResource("ShaderMaterial_4gkac")
+layout_mode = 0
+offset_left = 256.0
+offset_top = 193.0
+offset_right = 512.0
+offset_bottom = 385.0
+rotation = 3.1415927
+texture = ExtResource("7_857d1")
+stretch_mode = 1
+
+[node name="shader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_vfcrs")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="mouse_entered" from="start" to="." method="_on_start_mouse_entered"]
 [connection signal="mouse_exited" from="start" to="." method="_on_start_mouse_exited"]
