@@ -3,15 +3,15 @@
 [ext_resource type="Script" uid="uid://bd0yh16nx0wpr" path="res://scenes/objects/urchin/urchin.gd" id="1_h8u0u"]
 [ext_resource type="Texture2D" uid="uid://bqoi7dp7521ka" path="res://assets/sprites/urchin/urchin_1.png" id="2_xj6gj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8u0u"]
-size = Vector2(15, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_xj6gj"]
+radius = 8.5
 
 [node name="urchin" type="Area2D" groups=["urchin"]]
 script = ExtResource("1_h8u0u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_h8u0u")
+shape = SubResource("CircleShape2D_xj6gj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_xj6gj")

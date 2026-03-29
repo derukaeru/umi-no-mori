@@ -1,8 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://cnyr7ho757hdv"]
+[gd_scene load_steps=18 format=3 uid="uid://cnyr7ho757hdv"]
 
 [ext_resource type="Script" uid="uid://xbljakgdylsc" path="res://scenes/ui/menu/level_screen.gd" id="1_xepc8"]
 [ext_resource type="Shader" uid="uid://c8a6xk33gko71" path="res://assets/shaders/crt.gdshader" id="2_1knli"]
 [ext_resource type="Texture2D" uid="uid://33kvfskveoek" path="res://assets/sprites/menu/level_screen.png" id="2_66l0r"]
+[ext_resource type="Texture2D" uid="uid://ounin0ct2ded" path="res://assets/sprites/icons/hub_level_star.png" id="3_xqewg"]
+[ext_resource type="Script" uid="uid://0gyq7h41dae2" path="res://scripts/components/hub_level_star.gd" id="4_i7y1j"]
 [ext_resource type="Texture2D" uid="uid://bjns8favakw82" path="res://assets/sprites/icons/level_star.png" id="4_kjc3d"]
 [ext_resource type="Shader" uid="uid://b7v4mv16vpskt" path="res://assets/shaders/parallax.gdshader" id="4_m6e58"]
 [ext_resource type="Script" uid="uid://bu8a5m2sunodi" path="res://scripts/components/level_star.gd" id="5_exvsb"]
@@ -98,37 +100,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LevelStar" type="Sprite2D" parent="levels"]
-position = Vector2(58, 42.999996)
-rotation = -0.6503919
+[node name="Hub" type="Sprite2D" parent="levels"]
+position = Vector2(59, 46)
+rotation = 0.19802363
+texture = ExtResource("3_xqewg")
+script = ExtResource("4_i7y1j")
+metadata/_custom_type_script = "uid://0gyq7h41dae2"
+
+[node name="Level 1" type="Sprite2D" parent="levels"]
+position = Vector2(164, 55.999996)
+rotation = 0.5903302
 texture = ExtResource("4_kjc3d")
 script = ExtResource("5_exvsb")
 metadata/_custom_type_script = "uid://bu8a5m2sunodi"
 
-[node name="LevelStar2" type="Sprite2D" parent="levels"]
-position = Vector2(139, 54.999996)
-rotation = -0.87055224
+[node name="Level 2" type="Sprite2D" parent="levels"]
+position = Vector2(87, 101.00001)
+rotation = -0.9555234
 texture = ExtResource("4_kjc3d")
 script = ExtResource("5_exvsb")
 metadata/_custom_type_script = "uid://bu8a5m2sunodi"
 
-[node name="LevelStar3" type="Sprite2D" parent="levels"]
-position = Vector2(78, 94)
-rotation = 0.15913929
-texture = ExtResource("4_kjc3d")
-script = ExtResource("5_exvsb")
-metadata/_custom_type_script = "uid://bu8a5m2sunodi"
-
-[node name="LevelStar4" type="Sprite2D" parent="levels"]
-position = Vector2(121, 138)
-rotation = -0.9589519
-texture = ExtResource("4_kjc3d")
-script = ExtResource("5_exvsb")
-metadata/_custom_type_script = "uid://bu8a5m2sunodi"
-
-[node name="LevelStar5" type="Sprite2D" parent="levels"]
-position = Vector2(178, 126)
-rotation = 0.16638221
+[node name="Level 3" type="Sprite2D" parent="levels"]
+position = Vector2(177, 127)
+rotation = 0.09495812
 texture = ExtResource("4_kjc3d")
 script = ExtResource("5_exvsb")
 metadata/_custom_type_script = "uid://bu8a5m2sunodi"

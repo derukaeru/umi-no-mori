@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvbjlwv0etp1k"]
+
+[ext_resource type="Script" uid="uid://ber2hbundgom8" path="res://scenes/entities/enemies/moving_urchin.gd" id="1_n1ihf"]
+[ext_resource type="Texture2D" uid="uid://bqoi7dp7521ka" path="res://assets/sprites/urchin/urchin_1.png" id="2_uuih4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n1ihf"]
+radius = 6.0
+
+[node name="moving_urchin" type="CharacterBody2D"]
+script = ExtResource("1_n1ihf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_n1ihf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_uuih4")

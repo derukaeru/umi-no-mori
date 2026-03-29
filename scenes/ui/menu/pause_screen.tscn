@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://bl76u00j047yr"]
 
-[ext_resource type="Script" path="res://scenes/ui/menu/pause_screen.gd" id="1_7lsvi"]
+[ext_resource type="Script" uid="uid://cekv7mm3bqp2b" path="res://scenes/ui/menu/pause_screen.gd" id="1_7lsvi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a7tkb"]
 
@@ -33,6 +33,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ecwdm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cs7w5"]
+font_size = 18
 font_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
 
 [node name="pause_screen" type="Control"]
@@ -60,14 +61,15 @@ color = Color(0.19215687, 0.13333334, 0.20392157, 1)
 
 [node name="resume" type="Button" parent="."]
 layout_mode = 0
-offset_left = 48.0
+offset_left = 32.0
 offset_top = 72.0
-offset_right = 100.0
+offset_right = 128.0
 offset_bottom = 88.0
 theme_override_colors/font_color = Color(0.2509804, 0.21176471, 0.2901961, 1)
 theme_override_colors/font_focus_color = Color(0.2509804, 0.21176471, 0.2901961, 1)
 theme_override_colors/font_hover_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
+theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxEmpty_a7tkb")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_1nnkw")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_15xed")
@@ -85,14 +87,15 @@ offset_bottom = 12.0
 
 [node name="options" type="Button" parent="."]
 layout_mode = 0
-offset_left = 48.0
+offset_left = 32.0
 offset_top = 88.0
-offset_right = 98.0
+offset_right = 132.0
 offset_bottom = 104.0
 theme_override_colors/font_color = Color(0.2509804, 0.21176471, 0.2901961, 1)
 theme_override_colors/font_focus_color = Color(0.2509804, 0.21176471, 0.2901961, 1)
 theme_override_colors/font_hover_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
+theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxEmpty_adg4a")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ug5br")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_b8s8p")
@@ -110,14 +113,15 @@ offset_bottom = 12.0
 
 [node name="menu" type="Button" parent="."]
 layout_mode = 0
-offset_left = 48.0
+offset_left = 32.0
 offset_top = 104.0
-offset_right = 84.0
+offset_right = 89.0
 offset_bottom = 120.0
 theme_override_colors/font_color = Color(0.2509804, 0.21176471, 0.2901961, 1)
 theme_override_colors/font_focus_color = Color(0.2509804, 0.21176471, 0.2901961, 1)
 theme_override_colors/font_hover_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.6156863, 0.68235296, 0.7529412, 1)
+theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1e67d")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_c484w")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_a505t")
@@ -135,10 +139,10 @@ offset_bottom = 12.0
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 152.0
-offset_top = 88.0
-offset_right = 208.0
-offset_bottom = 104.0
+offset_left = 112.0
+offset_top = 40.0
+offset_right = 224.0
+offset_bottom = 56.0
 text = "paused."
 label_settings = SubResource("LabelSettings_cs7w5")
 

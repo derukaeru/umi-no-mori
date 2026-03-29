@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ckg3kbqtshl3f"]
+[gd_scene load_steps=15 format=3 uid="uid://ckg3kbqtshl3f"]
 
 [ext_resource type="PackedScene" uid="uid://1670pa3lbyvj" path="res://scenes/entities/player/player.tscn" id="1_hyk8p"]
 [ext_resource type="PackedScene" uid="uid://cq0lcfqchh4qi" path="res://scenes/world/levels/test_scene.tscn" id="1_iuonh"]
@@ -14,15 +14,20 @@ shader = ExtResource("3_hujxm")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_blune"]
 shader = ExtResource("3_hujxm")
 
+[sub_resource type="Gradient" id="Gradient_hujxm"]
+offsets = PackedFloat32Array(0, 0.41525424, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.076271184, 0.076271184, 0.076271184, 1, 1, 1, 1, 1)
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_hujxm"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yyfjg"]
 noise = SubResource("FastNoiseLite_hujxm")
+color_ramp = SubResource("Gradient_hujxm")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_th5th"]
 shader = ExtResource("7_a8run")
 shader_parameter/waterDistortionNoise = SubResource("NoiseTexture2D_yyfjg")
-shader_parameter/waterColor = Color(0.11764706, 0.27058825, 0.5803922, 0.39607844)
+shader_parameter/waterColor = Color(0.11764706, 0.27058825, 0.5803922, 0)
 shader_parameter/colorCorection = 0.35
 shader_parameter/distortionForce = 0.01
 shader_parameter/WDBrightness = 1.5
@@ -38,7 +43,7 @@ shader_parameter/backGroundDirY = 0.01
 shader = ExtResource("3_k2fmo")
 shader_parameter/resolution = Vector2(320, 180)
 shader_parameter/scan_line_amount = 0.1600000076
-shader_parameter/warp_amount = 0.02000000095
+shader_parameter/warp_amount = 0.0
 shader_parameter/vignette_amount = 1.0
 shader_parameter/vignette_intensity = 0.3
 shader_parameter/grille_amount = 0.650000030875
@@ -95,6 +100,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="shader" type="ColorRect" parent="hud"]
+visible = false
 material = SubResource("ShaderMaterial_l3cfh")
 anchors_preset = 15
 anchor_right = 1.0

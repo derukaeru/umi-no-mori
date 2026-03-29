@@ -5,6 +5,7 @@ var loaded_resource: PackedScene
 var scene_path: String
 var progress: Array = []
 var use_sub_thread: bool = true
+var version := 1 # 1 - change root scene, 2 - for levels
 
 signal progress_changed(progress)
 signal loading_finished
@@ -12,7 +13,8 @@ signal loading_finished
 func _ready() -> void:
 	set_process(false)
 
-func change_scene(path: String) -> void:
+func change_scene(path: String, ver = 1) -> void:
+	version = ver
 	scene_path = path
 	var new_load_screen = loading_screen.instantiate()
 	add_child(new_load_screen)
@@ -37,5 +39,9 @@ func _process(_delta) -> void:
 			set_process(false)
 		ResourceLoader.THREAD_LOAD_LOADED:
 			loaded_resource = ResourceLoader.load_threaded_get(scene_path)
-			# change the scene here
+			
+			if version == 1:
+				get_tree().change_scene_to_packed(loaded_resource)
+			elif version == 2:
+				pass
 			loading_finished.emit()
